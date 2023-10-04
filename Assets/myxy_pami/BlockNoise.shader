@@ -63,7 +63,7 @@
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
 
-                col.rgb *= h33(floor(float3(i.uv, _Time.y)*float3(_NoiseScale.xx, _TimeScale)));
+                col.rgb *= h33(floor(float3(i.uv, frac(_Time.y))*float3(_NoiseScale.xx, _TimeScale)));
 
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
